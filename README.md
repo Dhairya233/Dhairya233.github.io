@@ -1,71 +1,74 @@
-# Dhairya Shah — Pirate & Ocean Portfolio
+# dhairya233.github.io
 
-A single-page, ship-themed portfolio built from your resume. No build step,
-no backend, no frameworks — open `index.html` in a browser and it works.
+The source of my portfolio site: https://dhairya233.github.io/
 
-## How it's organized
+A small static site, generated from one data file. The hero is a Galton board: balls fall
+through pegs and pile into a bell curve, and moving the pointer tilts the odds.
 
+## How it works
+
+- `content/profile.json` holds every fact on the site (projects, research, skills,
+  certificates) in one place.
+- `src/build.mjs` turns it into plain HTML pages in `dist/`. There is no framework and
+  there are no runtime dependencies.
+- `src/site.css` and `src/app.js` are the styles and core behaviour (themes, a plain "Fast
+  lane", the Galton board). `src/extras.js` is the optional extras: command palette,
+  sound, a small game and a few hidden things.
+- `resume/` is the LaTeX source of my resume (pdfLaTeX, one column, plain text so
+  applicant-tracking systems can read it). The phone number is never stored here.
+- `scripts/` holds the helpers: resume build, an Overleaf zip, link and consistency checks.
+
+## Run it
+
+Needs Node 20 or newer.
+
+```bash
+npm test          # tests
+npm run build     # writes dist/
+npm run dev       # serves dist/ at http://localhost:8080
+node scripts/check-links.mjs --internal-only
 ```
-index.html          Page structure (sections, headings, icons). Rarely needs editing.
-css/style.css        All visual design — colors, type, layout, animations.
-js/data.js           <-- YOUR CONTENT LIVES HERE. Edit this to update the site.
-js/render.js          Turns js/data.js into the HTML you see. No content here.
-js/chart-rail.js     Drives the little ship that sails the scroll progress rail.
-js/ship-scene.js     The 3D ship + ocean in the hero, built with Three.js.
+
+Resume (needs TeX Live with `latexmk`, or upload `resume/` to Overleaf):
+
+```bash
+npm run resume    # builds the PDF without a phone number into public/
+python3 scripts/check-consistency.py
 ```
 
-## Adding, editing, or removing content
+To put a phone number on a private copy, create `resume/private/phone.tex`
+(see `resume/private/phone.example.tex`). It is git-ignored.
 
-Everything you'll want to change day-to-day — education, skills, jobs,
-projects, achievements, contact links — lives in **`js/data.js`** as one
-big, well-commented object. It's plain data: arrays of objects.
+## Deploy
 
-- **Add a project:** copy one object inside `treasures: [ ... ]`, paste it
-  as a new entry, and fill in the fields.
-- **Remove a job:** delete its object from the `voyages: [ ... ]` array.
-- **Change your email/phone/links:** edit the `captain: { ... }` block at
-  the top.
-- **Leave something blank:** an empty string `""` or empty array `[]` is
-  fine — the renderer skips it instead of showing an empty gap.
+Every push to `main` runs `.github/workflows/deploy.yml`: tests, build, an internal link
+check, then deployment to GitHub Pages (Settings, Pages, Source: GitHub Actions).
 
-You never need to touch `index.html`, `render.js`, or the CSS for routine
-content updates — that's the whole point of splitting it this way. If you
-add a *new kind of section* (not just new items in an existing list),
-that's the one case where you'd add a new `<section>` in `index.html` and
-a matching render step in `render.js`.
+## Measured results
 
-## The 3D ship
+Lighthouse (mobile preset, simulated slow 4G and 4x CPU slowdown), run locally on the
+home, a project and the About page: performance, accessibility, best practices and SEO
+all scored 100. Largest contentful paint 0.9 to 1.9 s, layout shift near 0. The home page
+transfers about 112 KB. axe-core found no violations in light or dark theme. Results will
+vary by machine; rerun them yourself.
 
-The hero section is a real WebGL scene (Three.js): a low-poly ship built
-from primitive shapes, riding a wave-animated ocean plane, with a
-directional "sun" light and gentle mouse parallax. It's fully
-self-contained in `js/ship-scene.js` — if a future redesign wants a plain
-static hero image instead, delete the `<canvas id="hero-canvas">` and its
-script tag and nothing else breaks.
+## Accessibility and privacy
 
-Below the hero, a small ship icon sails down a dotted route on the right
-edge of the screen as you scroll (`js/chart-rail.js`), marking your
-progress through the sections — the "sailing through chapters of my life"
-idea from the brief, done in a way that stays fast and reliable on mobile.
+- Keyboard friendly, visible focus, skip link, light and dark themes, `prefers-reduced-motion`
+  respected, and a plain Fast lane (`?simple` or the button).
+- Single-key shortcuts are off by default (WCAG 2.1.4). Ctrl/Cmd + K opens the palette.
+- No cookies, no analytics, no third-party requests. Theme, Fast lane, volume and
+  achievements are stored only in your own browser.
+- Sound is off by default and never autoplays. It is generated live with the Web Audio
+  API, so there is no audio file.
 
-## Deploying it
+## Credits
 
-This is a fully static site — three files types, no server code. You can
-drop the whole folder onto any static host:
+- Fonts: Bricolage Grotesque and JetBrains Mono, SIL Open Font Licence 1.1, self-hosted
+  (licences in `public/assets/fonts/`).
+- Icons, the social image and the QR code were made for this site.
+- Sound: original, generated in the browser. Nothing to attribute.
 
-- **Netlify / Vercel:** drag-and-drop the folder (or connect a GitHub repo).
-- **GitHub Pages:** push this folder to a repo and enable Pages on the
-  `main` branch.
-- **Anywhere else:** any host that can serve static files works — just
-  make sure `index.html`, `css/`, and `js/` stay in the same relative
-  layout.
+## Licence
 
-## Notes
-
-- Fonts (Pirata One, Cinzel, Crimson Pro) load from Google Fonts;
-  Three.js loads from a public CDN (cdnjs). Both need an internet
-  connection to load — if you ever want a fully offline copy, those two
-  `<link>`/`<script>` tags in `index.html` are the only external
-  dependencies to swap for local copies.
-- Respects `prefers-reduced-motion` (waves, reveal animations, and camera
-  parallax all calm down or stop for visitors who've asked for that).
+Code: MIT. Written content, resume and images: all rights reserved. See `LICENSE`.

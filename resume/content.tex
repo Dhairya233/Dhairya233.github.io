@@ -1,0 +1,34 @@
+% content.tex -- THE resume. One file, one version: everything true that fits on one page.
+% To tailor it for a company: copy this file's contents into a new file, or just edit
+% in place in Overleaf. Remove bullets, reorder them, or swap in other ids from
+% bank/projects.tex and bank/research.tex (every id has an evidence comment).
+% Rules: only true bullets; keep it to one page; mirror a job's keywords only if true.
+\input{sections/education}
+
+\section{Projects}
+\project{GestureOS}{Python, MediaPipe, OpenCV, CustomTkinter}{\vurl{https://github.com/Dhairya233/GestureOS}{github.com/Dhairya233/GestureOS}}
+\pitch{Control a Windows PC with your bare hands, through a webcam.}
+\begin{resumeitems}\bul{gos-1}\bul{gos-2}\bul{gos-5}\end{resumeitems}
+
+\project{Life-RPG Protocol}{Next.js, TypeScript, Supabase/PostgreSQL}{\vurl{https://github.com/Dhairya233/life-rpg-protocol}{github.com/Dhairya233/life-rpg-protocol}}
+\pitch{A gamified productivity app where I found, then fixed, a privilege-escalation hole in my own database.}
+\begin{resumeitems}\bul{rpg-1}\bul{rpg-2}\bul{rpg-3}\end{resumeitems}
+
+\project{Browser Arcade}{JavaScript, WebRTC, PeerJS}{\vurl{https://github.com/Dhairya233/browser-arcade}{github.com/Dhairya233/browser-arcade}}
+\pitch{Two multiplayer board games where I found, then fixed, a hidden-information leak in my own game.}
+\begin{resumeitems}\bul{arc-1}\bul{arc-2}\bul{arc-3}\end{resumeitems}
+
+\project{Fabric Defect Anomaly Detection}{Python, scikit-learn}{\vurl{https://github.com/Dhairya233/Textile-Defect-ML-Model}{github.com/Dhairya233/Textile-Defect-ML-Model}}
+\pitch{A leak-aware study of how much your data split changes a fabric-defect detector's results.}
+\begin{resumeitems}\bul{tex-1}\bul{tex-2}\bul{tex-3}\end{resumeitems}
+
+\researchheader
+\begin{resumeitems}\bul{ime-1}\bul{ime-2}\bul{ime-3}\end{resumeitems}
+
+\section{Skills}
+\skillrow{Languages}{\pill{Python}\pill{JavaScript}\pill{TypeScript}\pill{SQL}}
+\skillrow{Tools}{\pill{Next.js}\pill{Supabase/PostgreSQL}\pill{WebRTC}\pill{MediaPipe}\pill{OpenCV}\pill{scikit-learn}\pill{pytest}\pill{GitHub Actions}\pill{Git}}
+\skillrow{Learning}{\pill{Data structures and algorithms}\pill{C++}\pill{Data engineering}}
+\skillrow{Spoken languages}{\pill{English}\pill{Hindi}\pill{Gujarati}\hspace{1.2em}{\color{teal}\bfseries Hobbies\ }\pill{Music}}
+
+\input{sections/certifications}

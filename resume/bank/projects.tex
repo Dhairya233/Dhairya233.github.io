@@ -1,0 +1,57 @@
+% Bullet bank: projects. Each bullet has a unique id (used by content.tex)
+% and a comment naming its evidence. Edit freely; keep every claim true.
+
+% ---- GestureOS ----
+% evidence: GestureOS README, What it is
+\defbul{gos-1}{\lead{Built a Windows desktop app} that turns webcam hand tracking (MediaPipe Hand Landmarker, 21 landmarks per hand) into mouse, scroll, media, drawing and app-launch controls.}
+
+% evidence: README, Highlights and How it works
+\defbul{gos-2}{\lead{Designed a safety model:} the app starts disarmed, arms by a two-palm hold, disarms from any window with a global hotkey, and sends every OS event through one gateway that releases held keys on disarm.}
+
+% evidence: README, How it works (Threads, fault-isolating wrapper)
+\defbul{gos-3}{\lead{Separated the vision thread from the GUI thread} with lock-protected shared state, and wrapped each controller so one bug is logged instead of freezing the rest.}
+
+% evidence: README, Geometry; code: core/geometry.py, mouse_handler.py; tests test_filters_and_cooldowns.py
+\defbul{gos-4}{\lead{Decided gestures from landmark distances scaled by hand size} so they survive rotation and distance, then added hold-for-N-frames stability filters, hysteresis and cursor smoothing.}
+
+% evidence: pytest --collect-only: 630 tests collected; .github/workflows/ci.yml
+\defbul{gos-5}{\lead{Wrote 630 automated tests} that drive the real engine with generated hands and a fake input backend, so the project is tested without a camera, with CI on GitHub Actions.}
+
+% evidence: README, Learned classifier; docs/ML.md; no benchmark numbers claimed
+\defbul{gos-6}{\lead{Built an optional learned gesture classifier (off by default)} and an evaluation harness that compares models leave-one-session-out against the rule-based recogniser.}
+
+% ---- Life-RPG Protocol ----
+% evidence: Life-RPG README, What is Life-RPG Protocol and Tech Stack
+\defbul{rpg-1}{\lead{Built a gamified productivity web app} (Next.js 14, TypeScript, Supabase/PostgreSQL) with a focus-session monitor and reputation-weighted peer review of quest proof photos.}
+
+% evidence: README, Security work table
+\defbul{rpg-2}{\lead{Audited my own database and found users could edit their own Aura, XP and role}; fixed it with column-level grants, revoked function rights and identity taken from auth.uid().}
+
+% evidence: README, Security work; supabase/tests/
+\defbul{rpg-3}{\lead{Wrote the attacks as tests:} 44 attack checks failed on the old schema and about 260 database checks now pass in CI, including a two-session race test against double payouts.}
+
+% evidence: README, Security work table
+\defbul{rpg-4}{\lead{Moved proof photos to a private bucket} with strict path, type and size policy and short-lived signed links, and required login plus validation and a rate limit on the AI endpoint.}
+
+% ---- Browser Arcade ----
+% evidence: Browser Arcade README, intro and The two games
+\defbul{arc-1}{\lead{Built two multiplayer browser board games, Shadow Hunt and Game of Trades,} in plain JavaScript modules with WebRTC (PeerJS) and no build step.}
+
+% evidence: README, A hidden-information leak I found
+\defbul{arc-2}{\lead{Found a hidden-information leak in my own game} (26 of 26 snapshots exposed the hidden player's position) and fixed it with a host-authoritative design: per-seat views and validation of every action before it is applied.}
+
+% evidence: README, The test that guards it; npm test run: 135 pass, 0 fail
+\defbul{arc-3}{\lead{Wrote a test that reads every message sent to every non-hidden seat across a whole online game}, plus a fuzz test with hostile payloads; 135 tests run on every push with GitHub Actions.}
+
+% evidence: README, Project structure and Tests
+\defbul{arc-4}{\lead{Kept the rules engines as pure modules with no DOM}, so they are tested without a browser, and tested the colour palettes for colour-blind contrast.}
+
+% ---- Fabric Defect Anomaly Detection ----
+% evidence: Textile README, Why I built this, Methods in plain language, Results
+\defbul{tex-1}{\lead{Built a solo, leak-aware study of classical fabric-defect detection on the public AITEX dataset} (245 strips, 7 fabrics): 90 texture features per patch feeding a random forest, an SVM and four anomaly detectors, with a static results explorer.}
+
+% evidence: README headline finding; results/margin_masked/leakage_gap.csv (patch_ap: 0.4441 [0.2710, 0.5339]; 0.6375 [0.4646, 0.7461])
+\defbul{tex-2}{\lead{Measured the cost of a careless split:} a random patch split overstated the random forest's patch-level average precision by 0.44 (95\% interval 0.27 to 0.53) against splitting by whole strip, and by 0.64 when a whole fabric was held out; with a fabric held out every method scored close to chance.}
+
+% evidence: README, Evaluation protocol and Tests; pytest run: 75 passed, 1 skipped
+\defbul{tex-3}{\lead{Resampled whole strips (1,000 bootstrap resamples)} for intervals and wrote 75 passing tests, including checks that no strip sits on both sides of a split and that the numbers quoted in the README match the result tables.}

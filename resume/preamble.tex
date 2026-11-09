@@ -1,0 +1,96 @@
+% preamble.tex -- packages and layout macros. Every block is explained.
+% Plain, widely available packages only, so it compiles on Overleaf with pdfLaTeX.
+% The layout is written from scratch for this project (no third-party template).
+% Design rule: black and white only; decoration is thin rules and small vector shapes. All words stay real text,
+% in one column, so applicant-tracking systems read it correctly.
+
+% --- Page: A4 with narrow margins so one page fits a real resume ---------------
+\usepackage[a4paper,top=0.6cm,bottom=0.5cm,left=1.4cm,right=1.4cm]{geometry}
+
+% --- Fonts: Helvetica-style sans (standard, clean, ATS-safe) ---------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[english]{babel}
+
+% --- Colour: none. Black text and two greys only (prints and photocopies cleanly) ----
+\usepackage[table]{xcolor}
+\definecolor{ink}{gray}{0}           % body text
+\definecolor{teal}{gray}{0}          % headings and name (kept as a name so other files still work)
+\definecolor{accent}{gray}{0}
+\definecolor{dot}{gray}{0}           % decorative shapes
+\definecolor{soft}{gray}{0.35}       % secondary text
+\definecolor{hair}{gray}{0.72}       % thin rules
+\colorlet{peg}{hair}                 % peg colour of the dot motif
+\color{ink}
+
+% --- Spacing and lists ---------------------------------------------------------
+\usepackage{enumitem}                % tight bullet lists
+\usepackage{titlesec}                % section headings
+\usepackage[hidelinks]{hyperref}     % clickable links that do not change the layout
+\usepackage{microtype}               % slightly better line breaking, avoids overfull boxes
+\usepackage{tikz}                    % used only for the small dot motif in the header
+
+% --- ATS-friendly text extraction ---------------------------------------------
+% These two lines make the PDF carry real Unicode text so copy/paste and
+% applicant-tracking systems read it in the right order.
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+% --- Look ------------------------------------------------------------------------
+\pagestyle{empty}                    % no page numbers
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedbottom
+\raggedright
+\hbadness=10000  % do not warn about merely loose lines; real overfull boxes still warn
+
+% Section heading: spaced capitals, a hairline, and a short thick black bar on top of it.
+\titleformat{\section}{\bfseries\small}{}{0pt}{\MakeUppercase}
+  [\vspace{-5.5pt}{\color{hair}\rule{\linewidth}{0.4pt}}\kern-\linewidth{\color{black}\rule{2.4em}{1.6pt}}]
+\titlespacing*{\section}{0pt}{3pt}{1.5pt}
+
+% Bullet lists used under every entry (small orange squares as bullets)
+\newenvironment{resumeitems}
+  {\fontsize{8.8}{10.4}\selectfont\begin{itemize}[leftmargin=1.05em,itemsep=0.5pt,topsep=1pt,parsep=0pt,partopsep=0pt,label={\raisebox{0.28ex}{\rule{2.6pt}{2.6pt}}}]}
+  {\end{itemize}}
+
+% --- Bullet bank mechanism -------------------------------------------------------
+% bank/*.tex define bullets:  \defbul{some-id}{Text of the bullet.}
+% content.tex uses them:      \bul{some-id}
+\newcommand{\defbul}[2]{\expandafter\gdef\csname bul@#1\endcsname{#2}}
+\newcommand{\bul}[1]{%
+  \ifcsname bul@#1\endcsname
+    \item \csname bul@#1\endcsname
+  \else
+    \PackageError{resume}{Unknown bullet id "#1"}{Check the id in bank/*.tex.}%
+  \fi}
+
+% --- Entry headings --------------------------------------------------------------
+% \entry{Bold left}{Right-aligned}      first line of an entry
+% \entrysub{Italic left}{Right-aligned} second line
+\newcommand{\entry}[2]{\par\noindent\textbf{#1}\hfill {\color{soft}#2}\par}
+\newcommand{\entrysub}[2]{\noindent\textit{\color{soft}#1}\hfill {\color{soft}#2}\par}
+% A project heading: bold name, stack, visible repo URL; a hairline sits under the row
+\newcommand{\project}[3]{\par\vspace{2.5pt}\noindent{\bfseries\large #1}\ {\color{hair}\textbar}\ {\color{soft}\small #2}\hfill {\small #3}\par\vspace{-1pt}{\color{hair}\rule{\linewidth}{0.3pt}}\par\vspace{1.5pt}}
+% One-line hook under a project title
+\newcommand{\pitch}[1]{\noindent{\small\itshape\color{soft}#1}\par\vspace{1pt}}
+% Bold teal lead-in for the key phrase of a bullet
+\newcommand{\lead}[1]{{\bfseries\color{teal}#1}}
+% Skill item: plain text with generous spacing (real text, read normally by ATS).
+\newcommand{\pill}[1]{#1\hspace{1.15em plus 0.6em}}
+
+% A link whose visible text is the URL (so printed copies and ATS see it)
+\newcommand{\vurl}[2]{\href{#1}{#2}}
+
+% Skills row: bold teal label, then items
+\newcommand{\skillrow}[2]{\noindent{\color{teal}\bfseries #1\ }#2\par\vspace{2.2pt}}
+
+% --- Header motif: a tiny Galton board (pegs, with dots piling into a bell) ---------
+\newcommand{\galton}{%
+\begin{tikzpicture}[x=0.3cm,y=0.3cm]
+  \foreach \r in {0,...,5}{\foreach \k in {0,...,\r}{\fill[peg] ({\k-\r/2},{5-\r}) circle (0.17);}}
+  \foreach \b/\h in {0/1,1/2,2/4,3/4,4/2,5/1}{%
+    \foreach \j in {1,...,\h}{\fill[black] ({\b-2.5},{-0.4-0.62*\j}) circle (0.26);}}
+\end{tikzpicture}}

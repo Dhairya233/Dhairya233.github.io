@@ -1,0 +1,35 @@
+% contact.tex -- header: name, contact links, and a small dot motif between two rules.
+%
+% PHONE NUMBER: the real number is NEVER stored in this repository.
+%   * Committed state: \showphonefalse and a placeholder, so the published PDF has no phone.
+%   * Local builds: create resume/private/phone.tex (it is git-ignored) containing
+%         \showphonetrue
+%         \renewcommand{\phonenumber}{+91 XXXXX XXXXX}
+%     (see private/phone.example.tex). It is picked up automatically if the file exists.
+%   * Overleaf: after uploading, type your number into \phonenumber below and change
+%     \showphonefalse to \showphonetrue. Do that only in your Overleaf copy.
+
+\newif\ifshowphone
+\showphonefalse
+\newcommand{\phonenumber}{[add phone number]}
+\IfFileExists{private/phone.tex}{\input{private/phone}}{}
+% The website copy is built with \def\hidephone{1} (scripts/build-resume.sh, PUBLIC=1),
+% which switches the phone off even if private/phone.tex exists.
+\ifdefined\hidephone\showphonefalse\fi
+
+% Header: a thick black rule above the name, a hairline below the links. No colour.
+\colorlet{hname}{black}\colorlet{hsub}{soft}
+{\color{black}\rule{\linewidth}{2.2pt}}\par\vspace{0.2cm}
+\vspace{-0.3cm}
+\noindent
+\begin{minipage}[c]{0.74\linewidth}
+  {\color{hname}\fontsize{28}{30}\selectfont\bfseries Dhairya Shah}\\[5pt]
+  {\color{hsub}\small
+  Gujarat, India\ \textbar\ dhairyagshah233@gmail.com%
+  \ifshowphone\ \textbar\ \phonenumber\fi\\[2pt]
+  \vurl{https://www.linkedin.com/in/dhairyagshah233}{linkedin.com/in/dhairyagshah233}\ \textbar\
+  \vurl{https://github.com/Dhairya233}{github.com/Dhairya233}\ \textbar\
+  \vurl{https://dhairya233.github.io/}{dhairya233.github.io}}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.23\linewidth}\raggedleft\galton\end{minipage}
+\par\vspace{0.05cm}{\color{hair}\rule{\linewidth}{0.4pt}}\par\vspace{0pt}

@@ -1,0 +1,598 @@
+{
+  "_note": "Single source of truth for the website. Every fact appears once, with evidence. The resume bullet bank is seeded from this file once and then edited by hand; scripts/check-consistency.py warns if they drift. No phone number lives here.",
+  "identity": {
+    "name": "Dhairya Shah",
+    "headline": "B.Tech CSE student building computer-vision, full-stack and ML projects that I test and explain honestly.",
+    "location": "Gujarat, India",
+    "email": "dhairyagshah233@gmail.com",
+    "site": "https://dhairya233.github.io/",
+    "github": "https://github.com/Dhairya233",
+    "linkedin": "https://www.linkedin.com/in/dhairyagshah233",
+    "documents": "https://drive.google.com/drive/folders/1a0GNh8TE0NpETskL-AxRKWL7wtExKwCj?usp=sharing",
+    "openTo": null,
+    "photo": null,
+    "contactTab": false,
+    "emailShownOn": "About page only (no Contact tab)",
+    "phonePolicy": "Phone appears ONLY on the resume that the owner sends directly. Never in the repo, site, website PDFs, profile README or LinkedIn kit.",
+    "languagesSpoken": [
+      "English",
+      "Hindi",
+      "Gujarati"
+    ],
+    "hobbies": [
+      "Music"
+    ]
+  },
+  "education": {
+    "school": "Ahmedabad University",
+    "degree": "B.Tech, Computer Science and Engineering",
+    "year": "3rd year",
+    "classOf": 2028,
+    "cgpa": "3.25/4.0",
+    "courses": [],
+    "evidence": "Fact sheet; Institute author profile also states 'Class of 2028'"
+  },
+  "research": {
+    "id": "ime",
+    "organisation": "Institute of Manufacturing and Economy, Ahmedabad University",
+    "role": "Research Intern",
+    "roleEvidence": "Institute page author profile: 'interns at the Institute' and 'conducted the primary research for this sector snapshot'",
+    "publication": {
+      "title": "Textiles: Growing in Scale, Losing Relative Ground",
+      "series": "Sector Snapshots",
+      "date": "August 2026",
+      "scope": "NIC Divisions 13 and 14",
+      "credit": "Primary research: Dhairya Shah",
+      "url": "https://ahduni.edu.in/academics/schools-centres/the-institute-of-manufacturing-and-economy/insights/textiles-growing-in-scale-losing-relative-ground/"
+    },
+    "sources": [
+      "Annual Survey of Industries (MoSPI), 2014-15 to 2023-24",
+      "Index of Industrial Production, base 2011-12 (MoSPI)",
+      "DGCI&S trade statistics, FY24-25",
+      "CMIE Prowess IQ firm-level panel, FY14-15 to FY24-25",
+      "Published cluster profiles"
+    ],
+    "facts": [
+      {
+        "id": "ime-gvo",
+        "text": "Sector output (GVO) grew 61 percent between 2014-15 and 2023-24 (national ASI totals)",
+        "evidence": "Institute page, headline stat"
+      },
+      {
+        "id": "ime-iip",
+        "text": "By the Index of Industrial Production, the sector has trailed overall manufacturing every year since 2017-18",
+        "evidence": "Institute page: above the index 2012-13 to 2016-17, below every year since"
+      },
+      {
+        "id": "ime-trade",
+        "text": "Imports grew faster than exports (12.4 percent vs 8.6 percent year on year, FY24-25)",
+        "evidence": "Institute page, trade section"
+      }
+    ],
+    "dates": null,
+    "supervisor": "not shown anywhere (listed on the university site)",
+    "note": "No repository exists for this work. The Institute page is the only public evidence. Do not copy the page's text, images or the university logo.",
+    "roleConfirmed": "Owner confirmed: currently an intern at the Institute.",
+    "summary": "The Institute of Manufacturing and Economy at Ahmedabad University publishes short sector snapshots on Indian industry. I did the primary research for the snapshot on textiles (NIC Divisions 13 and 14), which uses national factory survey data, the index of industrial production, trade statistics and firm-level financial data. It is about a sector that is growing in size while losing ground to the rest of manufacturing.",
+    "whatIDid": "The Institute credits me with the primary research for the snapshot. I worked from the four national and firm-level sources listed below and covered the state, cluster, investment and R&D sections.",
+    "publicFacts": [
+      "Sector output grew 61 percent between 2014-15 and 2023-24, yet the sector has trailed overall manufacturing on the production index every year since 2017-18.",
+      "Imports are growing faster than exports (12.4 percent against 8.6 percent a year on year in FY24-25)."
+    ]
+  },
+  "certifications": [
+    {
+      "id": "aws-cf",
+      "title": "AWS Academy Cloud Foundations",
+      "issuer": "AWS Academy",
+      "date": null,
+      "link": null
+    },
+    {
+      "id": "aws-de",
+      "title": "AWS Academy Graduate - Data Engineering",
+      "issuer": "AWS Academy",
+      "date": null,
+      "link": null
+    }
+  ],
+  "certificationsNote": "Say only that the certificates exist and are available in the Documents (Drive) folder. Never write 'AWS Certified'.",
+  "projects": [
+    {
+      "id": "gestureos",
+      "name": "GestureOS",
+      "visibility": "public",
+      "repo": "https://github.com/Dhairya233/GestureOS",
+      "live": null,
+      "stack": [
+        "Python",
+        "MediaPipe",
+        "OpenCV",
+        "CustomTkinter",
+        "pytest",
+        "GitHub Actions"
+      ],
+      "pitch": "Control a Windows PC with your bare hands through a webcam.",
+      "numbers": {
+        "tests": 630
+      },
+      "media": {
+        "video": {
+          "file": "docs/media/demo.mp4",
+          "label": "Scripted walkthrough, no webcam (hand landmarks are scripted)"
+        },
+        "image": {
+          "file": "docs/media/hero.gif",
+          "label": "Rendered from scripted hand landmarks"
+        }
+      },
+      "bullets": [
+        {
+          "id": "gos-1",
+          "text": "Built a Windows desktop app that turns webcam hand tracking (MediaPipe Hand Landmarker, 21 landmarks per hand) into mouse, scroll, media, drawing and app-launch controls.",
+          "evidence": "GestureOS README, What it is"
+        },
+        {
+          "id": "gos-2",
+          "text": "Designed a safety model: the app starts disarmed, arms by a two-palm hold, disarms from any window with a global hotkey, and sends every OS event through one gateway that releases held keys on disarm.",
+          "evidence": "README, Highlights and How it works"
+        },
+        {
+          "id": "gos-3",
+          "text": "Separated the vision thread from the GUI thread with lock-protected shared state, and wrapped each controller so one bug is logged instead of freezing the rest.",
+          "evidence": "README, How it works (Threads, fault-isolating wrapper)"
+        },
+        {
+          "id": "gos-4",
+          "text": "Decided gestures from landmark distances scaled by hand size so they survive rotation and distance, then added hold-for-N-frames stability filters, hysteresis and cursor smoothing.",
+          "evidence": "README, Geometry; code: core/geometry.py, mouse_handler.py; tests test_filters_and_cooldowns.py"
+        },
+        {
+          "id": "gos-5",
+          "text": "Wrote 630 automated tests that drive the real engine with generated hands and a fake input backend, so the project is tested without a camera, with CI on GitHub Actions.",
+          "evidence": "pytest --collect-only: 630 tests collected; .github/workflows/ci.yml"
+        },
+        {
+          "id": "gos-6",
+          "text": "Built an optional learned gesture classifier (off by default) and an evaluation harness that compares models leave-one-session-out against the rule-based recogniser.",
+          "evidence": "README, Learned classifier; docs/ML.md; no benchmark numbers claimed"
+        }
+      ],
+      "ownerConfirmed": "Tested by the owner on real Windows hardware; works (confirmed Nov 2026). The README's 'not run on Windows by me' wording is out of date: update the README.",
+      "case": {
+        "status": "Working app, MIT licence",
+        "problem": "Hand-gesture control is easy to demo and easy to get wrong: a stray gesture can click, type or close something you never meant to touch. I wanted to find out whether gestures could be made safe and predictable enough for a real desktop.",
+        "built": "A Windows app that reads a webcam, finds 21 landmarks on each hand with MediaPipe, decides the gesture from landmark geometry, and turns it into mouse, scroll, media, drawing and app-launch events. A live view shows what the app sees and every action it sends.",
+        "decision": "Everything that touches the operating system goes through one gateway. It checks that the app is armed, clamps coordinates to the screen, remembers what is held down so it can release it on disarm, and logs each action. The app starts disarmed, arms when both open palms are held for about a second, and a global hotkey (Ctrl+Alt+F12) disarms from any window. Each feature runs inside a wrapper that logs a bug and carries on, so one broken controller cannot freeze the rest.",
+        "result": "630 automated tests drive the real engine with generated hands and a fake input backend, so the logic is tested without a camera, with CI on every push. I have also tested it by hand on Windows, where it works.",
+        "caveats": "Windows only, and it needs a webcam. Accuracy depends on light and camera angle. The demo film and the animated hero in the README are rendered from scripted hand landmarks, not a webcam recording. The optional learned classifier is an experiment with no published results.",
+        "learned": "Safety is mostly about what a program refuses to do. Input code becomes testable once the operating system sits behind one seam. Distances scaled by hand size survive rotation and distance in a way pixel positions never do.",
+        "images": [
+          {
+            "file": "gestureos-mouse",
+            "w": 1200,
+            "h": 740,
+            "alt": "GestureOS live view with a hand skeleton overlay while the air mouse is active",
+            "caption": "Live view: the skeleton, the pose name and what the app is about to do. Rendered from scripted hand landmarks."
+          },
+          {
+            "file": "gestureos-arming",
+            "w": 1200,
+            "h": 740,
+            "alt": "GestureOS arming screen with a hold-progress bar while both palms are held up",
+            "caption": "Arming: both palms held for about a second. Rendered from scripted hand landmarks."
+          },
+          {
+            "file": "gestureos-diagnostics",
+            "w": 1200,
+            "h": 740,
+            "alt": "GestureOS diagnostics tab with camera view, system meters and event log",
+            "caption": "Diagnostics: camera view, system meters and the log of every action sent."
+          }
+        ],
+        "video": {
+          "file": "gestureos-demo.mp4",
+          "poster": "gestureos-poster",
+          "w": 1200,
+          "h": 675,
+          "label": "Watch the demo (1:44, with sound)",
+          "note": "Scripted walkthrough: the real app driven by scripted hand landmarks, with no webcam footage."
+        }
+      }
+    },
+    {
+      "id": "life-rpg",
+      "name": "Life-RPG Protocol",
+      "visibility": "public",
+      "repo": "https://github.com/Dhairya233/life-rpg-protocol",
+      "live": "https://life-rpg-protocol.vercel.app/login",
+      "stack": [
+        "Next.js 14",
+        "TypeScript",
+        "Supabase",
+        "PostgreSQL",
+        "Tailwind",
+        "GitHub Actions"
+      ],
+      "pitch": "A gamified productivity app where focus sessions and peer-reviewed proof of work earn XP and a reputation currency.",
+      "numbers": {
+        "dbChecksPassing": "about 260",
+        "attackChecksFailingOnOldSchema": 44
+      },
+      "media": {
+        "video": null,
+        "image": null
+      },
+      "bullets": [
+        {
+          "id": "rpg-1",
+          "text": "Built a gamified productivity web app (Next.js 14, TypeScript, Supabase/PostgreSQL) with a focus-session monitor and reputation-weighted peer review of quest proof photos.",
+          "evidence": "Life-RPG README, What is Life-RPG Protocol and Tech Stack"
+        },
+        {
+          "id": "rpg-2",
+          "text": "Audited my own database and found users could edit their own Aura, XP and role; fixed it with column-level grants, revoked function rights and identity taken from auth.uid().",
+          "evidence": "README, Security work table"
+        },
+        {
+          "id": "rpg-3",
+          "text": "Wrote the attacks as tests: 44 attack checks failed on the old schema and about 260 database checks now pass in CI, including a two-session race test against double payouts.",
+          "evidence": "README, Security work; supabase/tests/"
+        },
+        {
+          "id": "rpg-4",
+          "text": "Moved proof photos to a private bucket with strict path, type and size policy and short-lived signed links, and required login plus validation and a rate limit on the AI endpoint.",
+          "evidence": "README, Security work table"
+        }
+      ],
+      "case": {
+        "status": "Live demo, MIT licence",
+        "problem": "Productivity apps run on the honour system: you tick a box, get a reward, and streaks stop meaning anything. I wanted progress that is checked, which also meant the database had to hold up against a player who is trying to cheat.",
+        "built": "A gamified productivity app (Next.js 14, TypeScript, Supabase/PostgreSQL). A focus monitor notices tab switches and long absences. Finished quests are judged by other players in a reputation-weighted jury, and XP and a reputation currency called Aura follow the verdict.",
+        "decision": "Treat the browser as hostile. I audited my own first version and found that a signed-in user could edit their own Aura, XP and role, and that database functions would act for any user ID. I fixed it with column-level grants, revoked function rights, identity taken from auth.uid(), and row-locked, idempotent verdicts. Every game action is now a database function that validates input and bounds rewards.",
+        "result": "I wrote each attack as a test first: 44 attack checks failed on the old schema, and about 260 database checks now pass in CI, including a two-session race test where two jurors cast the deciding vote at the same instant. A later independent review found one more farming loop, now fixed and tested.",
+        "caveats": "The focus monitor is a deterrent, not a guarantee: a browser cannot prove you were working. The repository's security notes list what is not protected.",
+        "learned": "Row Level Security is not enough on its own: revoke first, grant only what is needed, then add policies. Writing the attack as a test and watching it fail on the old code is the only convincing proof a fix works. Documenting what is not protected is part of the job.",
+        "flow": [
+          "Start quest",
+          "Focus session",
+          "Proof photo",
+          "Jury votes (weighted by Aura)",
+          "Verdict"
+        ],
+        "flowNote": "Quest status machine: active, pending verification, then completed or failed. A verdict of 0.6 or higher approves, below 0.4 rejects, anything between stays pending."
+      }
+    },
+    {
+      "id": "browser-arcade",
+      "name": "Browser Arcade",
+      "visibility": "public",
+      "repo": "https://github.com/Dhairya233/browser-arcade",
+      "live": "https://dhairya233.github.io/browser-arcade/",
+      "stack": [
+        "JavaScript (ES modules)",
+        "WebRTC",
+        "PeerJS",
+        "Node test runner",
+        "GitHub Actions"
+      ],
+      "pitch": "Two multiplayer browser board games, Shadow Hunt and Game of Trades, playable on one screen or online.",
+      "numbers": {
+        "tests": 135,
+        "leakSnapshots": "26 of 26"
+      },
+      "media": {
+        "video": {
+          "file": "docs/media/browser-arcade-demo-captions.mp4",
+          "label": "77 s demo with captions; online scenes are three windows on one computer"
+        },
+        "image": {
+          "file": "docs/media/hero.gif",
+          "label": "Shadow Hunt online"
+        }
+      },
+      "bullets": [
+        {
+          "id": "arc-1",
+          "text": "Built two multiplayer browser board games, Shadow Hunt and Game of Trades, in plain JavaScript modules with WebRTC (PeerJS) and no build step.",
+          "evidence": "Browser Arcade README, intro and The two games"
+        },
+        {
+          "id": "arc-2",
+          "text": "Found a hidden-information leak in my own game (26 of 26 snapshots exposed the hidden player's position) and fixed it with a host-authoritative design: per-seat views and validation of every action before it is applied.",
+          "evidence": "README, A hidden-information leak I found"
+        },
+        {
+          "id": "arc-3",
+          "text": "Wrote a test that reads every message sent to every non-hidden seat across a whole online game, plus a fuzz test with hostile payloads; 135 tests run on every push with GitHub Actions.",
+          "evidence": "README, The test that guards it; npm test run: 135 pass, 0 fail"
+        },
+        {
+          "id": "arc-4",
+          "text": "Kept the rules engines as pure modules with no DOM, so they are tested without a browser, and tested the colour palettes for colour-blind contrast.",
+          "evidence": "README, Project structure and Tests"
+        }
+      ],
+      "ownerConfirmed": "Online play tested by the owner across different real networks; works (confirmed Nov 2026). The README's 'not verified across real networks' wording is out of date: update the README.",
+      "case": {
+        "status": "Live, MIT licence",
+        "problem": "I had two single-file games and wanted to see what it takes to let strangers play them: rules that can be tested without a browser, online play, and no way to peek at hidden information.",
+        "built": "Two board games, Shadow Hunt (a hidden-movement chase) and Game of Trades (resource trading on an island), that run in a browser tab on one shared screen or online over WebRTC with PeerJS. Plain JavaScript modules, no build step and no account.",
+        "decision": "Host-authoritative netcode. One player's browser holds the full game, checks every action against the seat and the rules, and sends each player a view built for their seat, so hidden information never reaches the wrong browser.",
+        "result": "My audit script showed that my original online Shadow Hunt sent the Phantom's position to everyone: 26 of 26 snapshots exposed it. After the redesign, a test reads every message delivered to every non-Phantom seat across a whole online game and fails if that position or the secret tickets appear. 135 tests run on every push, covering both rules engines, the netcode, per-seat views, colour-blind contrast and a fuzz test with hostile payloads. I have also played online across different real networks, where it works.",
+        "caveats": "The host's browser is the server: if the host leaves the game ends, and a malicious host can see everything. Connections use free public signalling and relay services, and some networks block peer-to-peer traffic. The online scenes in the demo video are three windows on one computer.",
+        "learned": "Hiding information in the interface is not hiding it: it must never be sent. Keeping rules in pure modules makes them easy to test. Fuzzing with hostile payloads finds crashes you would not think to test for.",
+        "images": [
+          {
+            "file": "arcade-shadow-hunt",
+            "w": 1200,
+            "h": 675,
+            "alt": "Shadow Hunt board: a city map with detectives, routes and a ticket panel",
+            "caption": "Shadow Hunt: one player is the hidden Phantom, the rest are detectives."
+          },
+          {
+            "file": "arcade-game-of-trades",
+            "w": 1200,
+            "h": 675,
+            "alt": "Game of Trades board: an island of hexagonal resource tiles with settlements and roads",
+            "caption": "Game of Trades: settle an island, trade with players and the bank."
+          },
+          {
+            "file": "arcade-shadow-hunt-reveal",
+            "w": 1200,
+            "h": 675,
+            "alt": "A Shadow Hunt reveal round as a detective sees it",
+            "caption": "A reveal round, as a detective sees it."
+          }
+        ],
+        "video": {
+          "file": "browser-arcade-demo.mp4",
+          "poster": "arcade-poster",
+          "w": 1200,
+          "h": 675,
+          "label": "Watch the demo (1:17, with captions)",
+          "note": "The online scenes are three browser windows on one computer, using the real pages and the real WebRTC code."
+        }
+      }
+    },
+    {
+      "id": "fabric-defect",
+      "name": "Fabric Defect Anomaly Detection",
+      "visibility": "public",
+      "repo": "https://github.com/Dhairya233/Textile-Defect-ML-Model",
+      "live": "https://dhairya233.github.io/Textile-Defect-ML-Model/",
+      "liveLabel": "Results explorer",
+      "stack": [
+        "Python",
+        "scikit-learn",
+        "scikit-image",
+        "NumPy",
+        "pandas",
+        "pytest",
+        "GitHub Actions"
+      ],
+      "pitch": "A leak-aware study of how much your data split changes a fabric-defect detector's results.",
+      "numbers": {
+        "tests": 75,
+        "strips": 245,
+        "leakGapRF": "0.44"
+      },
+      "media": {
+        "video": null,
+        "image": null
+      },
+      "bullets": [
+        {
+          "id": "tex-1",
+          "text": "Built a solo, leak-aware study of classical fabric-defect detection on the public AITEX dataset (245 strips, 7 fabrics): 90 texture features per patch feeding a random forest, an SVM and four anomaly detectors, with a static results explorer.",
+          "evidence": "Textile README, Why I built this, Methods in plain language, Results"
+        },
+        {
+          "id": "tex-2",
+          "text": "Measured the cost of a careless split: a random patch split overstated the random forest's patch-level average precision by 0.44 (95% interval 0.27 to 0.53) against splitting by whole strip, and by 0.64 when a whole fabric was held out; with a fabric held out every method scored close to chance.",
+          "evidence": "README headline finding; results/margin_masked/leakage_gap.csv (patch_ap: 0.4441 [0.2710, 0.5339]; 0.6375 [0.4646, 0.7461])"
+        },
+        {
+          "id": "tex-3",
+          "text": "Resampled whole strips (1,000 bootstrap resamples) for intervals and wrote 75 passing tests, including checks that no strip sits on both sides of a split and that the numbers quoted in the README match the result tables.",
+          "evidence": "README, Evaluation protocol and Tests; pytest run: 75 passed, 1 skipped"
+        }
+      ],
+      "case": {
+        "status": "Solo project, MIT licence",
+        "problem": "Defect detection is a setting where a careless split looks fine: patches cut from one fabric strip overlap each other, so a model can effectively see its test patch's neighbours while it trains. I wanted to measure how much that changes the result.",
+        "built": "A leak-aware study of classical fabric-defect detection on the public AITEX dataset (245 strips, 7 fabrics). Ninety texture features per patch feed a random forest, an SVM and four anomaly detectors, all evaluated three ways, with a static results explorer for browsing the numbers.",
+        "decision": "Split by whole strip, not by patch. I compared a deliberately leaky random-patch split against a split by whole strip and against holding a whole fabric out, and wrote tests that fail if a strip ever sits on both sides of a split (and that the leaky control really does leak). Intervals come from resampling whole strips, because patches of one strip are not independent.",
+        "flow": [
+          "245 strips, 4096 by 256 px",
+          "Patches of 256 px, step 128",
+          "90 texture features per patch",
+          "Three splits: by strip, fabric held out, leaky control",
+          "Bootstrap over strips"
+        ],
+        "flowNote": "The evaluation pipeline. Every patch of a strip stays on the same side of a proper split.",
+        "result": "A random split of patches overstated the random forest's patch-level average precision by 0.44 (95% interval 0.27 to 0.53) compared with splitting by strip, and by 0.64 (0.46 to 0.75) compared with holding a fabric out. At strip level the per-fabric AUROC was overstated by 0.07 and 0.37. Anomaly detectors, which never see defects in training, showed no clear inflation. With a whole fabric held out, every method scored close to chance (strip AUROC 0.47 to 0.60). 75 automated tests pass, including checks that the numbers quoted in the README match the result tables.",
+        "caveats": "One small dataset (245 strips, 105 defective) captured in a lab, and not tested on a factory line. The data has capture artefacts, such as blank margins and brightness differences unrelated to defects, so I report a run with margin patches left out next to the as-is run. No deep pretrained features were tested. Some analysis choices were made after seeing results and are listed in the repository.",
+        "learned": "How you split the data can matter more than which model you pick. A control that is supposed to fail, here the leaky split, is a good test of the evaluation itself. Reporting where the method does not work, which here is an unseen fabric, is part of the result.",
+        "images": [
+          {
+            "file": "fabric-leakage",
+            "w": 1200,
+            "h": 675,
+            "alt": "Results explorer chart of patch-level average precision per method under three splits, with the leaky split far above the others for the random forest and SVM",
+            "caption": "The results explorer. Circle: split by strip. Diamond: whole fabric held out. Square: the leaky patch split."
+          },
+          {
+            "file": "fabric-failures",
+            "w": 1200,
+            "h": 675,
+            "alt": "Failure gallery listing strips the random forest missed, with the true defect marked above the score track",
+            "caption": "Failure gallery: strips the random forest missed. No dataset images are shown."
+          }
+        ]
+      }
+    }
+  ],
+  "researchBullets": [
+    {
+      "id": "ime-1",
+      "text": "Conducted the primary research for the Institute's published sector snapshot \"Textiles: Growing in Scale, Losing Relative Ground\" (NIC Divisions 13 and 14, August 2026).",
+      "evidence": "Institute page credit line: 'Primary research: Dhairya Shah'"
+    },
+    {
+      "id": "ime-2",
+      "text": "Worked from the Annual Survey of Industries, the Index of Industrial Production, DGCI&S trade statistics and CMIE Prowess firm-level data, covering 2014-15 to 2024-25.",
+      "evidence": "Institute page, References"
+    },
+    {
+      "id": "ime-3",
+      "text": "Findings include 61 percent growth in sector output from 2014-15 to 2023-24 alongside a lag behind overall manufacturing on the production index, and imports growing faster than exports.",
+      "evidence": "Institute page, headline stat, IIP and trade sections"
+    },
+    {
+      "id": "ime-4",
+      "text": "Covered state and cluster geography, investment and R&D, profiling six textile hubs and the leading states by output and wages.",
+      "evidence": "Institute page, Geography, Clusters, Investment and R&D sections"
+    }
+  ],
+  "skills": {
+    "tiers": [
+      {
+        "tier": "Used in projects",
+        "items": [
+          {
+            "name": "Python",
+            "evidence": [
+              "gestureos",
+              "fabric-defect"
+            ]
+          },
+          {
+            "name": "JavaScript",
+            "evidence": [
+              "browser-arcade"
+            ]
+          },
+          {
+            "name": "TypeScript",
+            "evidence": [
+              "life-rpg"
+            ]
+          },
+          {
+            "name": "SQL / PostgreSQL",
+            "evidence": [
+              "life-rpg"
+            ]
+          },
+          {
+            "name": "MediaPipe, OpenCV",
+            "evidence": [
+              "gestureos"
+            ]
+          },
+          {
+            "name": "Next.js, Supabase",
+            "evidence": [
+              "life-rpg"
+            ]
+          },
+          {
+            "name": "WebRTC / PeerJS",
+            "evidence": [
+              "browser-arcade"
+            ]
+          },
+          {
+            "name": "pytest, Node test runner",
+            "evidence": [
+              "gestureos",
+              "browser-arcade",
+              "fabric-defect"
+            ]
+          },
+          {
+            "name": "GitHub Actions, Git",
+            "evidence": [
+              "gestureos",
+              "life-rpg",
+              "browser-arcade",
+              "fabric-defect"
+            ]
+          },
+          {
+            "name": "scikit-learn",
+            "evidence": [
+              "gestureos",
+              "fabric-defect"
+            ]
+          },
+          {
+            "name": "NumPy, pandas, scikit-image",
+            "evidence": [
+              "fabric-defect"
+            ]
+          },
+          {
+            "name": "Statistical evaluation (bootstrap intervals, grouped splits)",
+            "evidence": [
+              "fabric-defect"
+            ]
+          }
+        ]
+      },
+      {
+        "tier": "Learning",
+        "items": [
+          {
+            "name": "Data structures and algorithms",
+            "evidence": []
+          },
+          {
+            "name": "C++",
+            "evidence": []
+          },
+          {
+            "name": "Data engineering",
+            "evidence": []
+          }
+        ]
+      }
+    ],
+    "note": "DSA and C++ stay under Learning unless the user says otherwise."
+  },
+  "interests": [
+    "data science",
+    "machine learning",
+    "computer vision",
+    "mathematics",
+    "data engineering"
+  ],
+  "doNotShow": [
+    "phone number",
+    "supervisor name",
+    "relevant courses",
+    "open-to line",
+    "coursework or team projects",
+    "Verilog work",
+    "abandoned or private repos",
+    "any photo of me",
+    "any link between the Institute research and the textile project"
+  ],
+  "resume": {
+    "versions": 1,
+    "note": "One resume only, unlabelled, showing everything the owner knows; may run past one page. No headline line or numbers strip on the resume. Spoken languages and hobbies are shown."
+  },
+  "featured": [
+    "gestureos",
+    "life-rpg",
+    "browser-arcade",
+    "fabric-defect"
+  ],
+  "about": {
+    "intro": "I'm a B.Tech Computer Science and Engineering student at Ahmedabad University, in my third year. I like problems where the honest answer takes some measuring: how well does a model really work, where could a system leak, what is the evidence.",
+    "now": "Right now I am strengthening data structures and algorithms and my computer-science fundamentals, working as a research intern at the Institute of Manufacturing and Economy, and looking to do research with a professor.",
+    "how": "My habit is to write the test, or the attack, before I trust the thing. Two of my projects started with me finding a flaw in my own work and fixing it.",
+    "outside": "Outside code, I like music."
+  }
+}
