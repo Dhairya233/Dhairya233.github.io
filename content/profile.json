@@ -86,17 +86,35 @@
       "title": "AWS Academy Cloud Foundations",
       "issuer": "AWS Academy",
       "date": null,
-      "link": null
+      "link": null,
+      "kind": "certificate"
     },
     {
       "id": "aws-de",
       "title": "AWS Academy Graduate - Data Engineering",
       "issuer": "AWS Academy",
       "date": null,
-      "link": null
+      "link": null,
+      "kind": "certificate"
+    },
+    {
+      "id": "sae-appreciation",
+      "title": "Letter of Appreciation, SAEINDIA Ahmedabad University Student Section",
+      "issuer": "SAEINDIA Ahmedabad University Student Section",
+      "date": "March 2025",
+      "link": null,
+      "kind": "appreciation"
+    },
+    {
+      "id": "foundation-appreciation",
+      "title": "Letter of Appreciation, Foundation Challenge",
+      "issuer": "Ahmedabad University",
+      "date": "April 2025",
+      "link": null,
+      "kind": "appreciation"
     }
   ],
-  "certificationsNote": "Say only that the certificates exist and are available in the Documents (Drive) folder. Never write 'AWS Certified'.",
+  "certificationsNote": "Say only that the documents exist and are available in the Documents (Drive) folder. Never write 'AWS Certified'. The two Letters of Appreciation are recognition, not coursework entries.",
   "projects": [
     {
       "id": "gestureos",
@@ -581,7 +599,40 @@
   ],
   "resume": {
     "versions": 1,
-    "note": "One resume only, unlabelled, showing everything the owner knows; may run past one page. No headline line or numbers strip on the resume. Spoken languages and hobbies are shown."
+    "note": "One resume only, unlabelled, showing everything the owner knows; may run past one page. No headline line or numbers strip on the resume. Spoken languages and hobbies are shown.",
+    "skillRows": [
+      {
+        "label": "Languages",
+        "items": [
+          "Python",
+          "JavaScript",
+          "TypeScript",
+          "SQL"
+        ]
+      },
+      {
+        "label": "Tools",
+        "items": [
+          "Next.js",
+          "Supabase/PostgreSQL",
+          "WebRTC",
+          "MediaPipe",
+          "OpenCV",
+          "scikit-learn",
+          "pytest",
+          "GitHub Actions",
+          "Git"
+        ]
+      },
+      {
+        "label": "Learning",
+        "items": [
+          "Data structures and algorithms",
+          "C++",
+          "Data engineering"
+        ]
+      }
+    ]
   },
   "featured": [
     "gestureos",
@@ -594,5 +645,28 @@
     "now": "Right now I am strengthening data structures and algorithms and my computer-science fundamentals, working as a research intern at the Institute of Manufacturing and Economy, and looking to do research with a professor.",
     "how": "My habit is to write the test, or the attack, before I trust the thing. Two of my projects started with me finding a flaw in my own work and fixing it.",
     "outside": "Outside code, I like music."
+  },
+  "leadership": {
+    "_note": "Facts from the owner and from the SAEINDIA letter (30 March 2025). Keep claims modest: one event as event head; designs were selected for the section's Instagram page, the owner did not run the account. The Foundation Challenge appears only as a recognition line, because the owner asked for no coursework entries.",
+    "title": "Leadership & Design",
+    "intro": "Outside engineering I organise events and design graphics. I was a Co-ordinating Committee Member of the SAEINDIA Ahmedabad University Student Section for 2024 to 2025.",
+    "items": [
+      {
+        "id": "sae",
+        "role": "Co-ordinating Committee Member and graphic designer",
+        "org": "SAEINDIA Ahmedabad University Student Section",
+        "period": "2024 to 2025",
+        "bullets": [
+          {
+            "id": "sae-1",
+            "text": "Led one of the section's events as event head, responsible for running it from planning through to the end of the day."
+          },
+          {
+            "id": "sae-2",
+            "text": "Designed graphics for the section's events and posts. Many of my designs were selected for the SAE Ahmedabad University Instagram page."
+          }
+        ]
+      }
+    ]
   }
 }

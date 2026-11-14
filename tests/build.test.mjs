@@ -77,3 +77,24 @@ test("every image has alt text", () => {
     for (const m of read(dir, f).matchAll(/<img [^>]*>/g)) assert.match(m[0], / alt="/);
   }
 });
+
+test("Leadership & Design shows on About and the resume page, with the two letters", () => {
+  const dir = out(); buildSite({ data: real, outDir: dir });
+  const about = read(dir, "about/index.html"), resume = read(dir, "resume/index.html");
+  assert.match(about, /id="leadership"/); assert.match(about, /Leadership &amp; Design/);
+  assert.match(about, /Letter of Appreciation, SAEINDIA Ahmedabad University Student Section/);
+  assert.match(about, /Letter of Appreciation, Foundation Challenge/);
+  assert.match(resume, /Leadership &amp; Design/);
+});
+
+test("no leadership data means no leadership section and no crash", () => {
+  const data = clone(real); delete data.leadership;
+  const dir = out(); buildSite({ data, outDir: dir });
+  assert.ok(!/id="leadership"/.test(read(dir, "about/index.html")));
+});
+
+test("Instagram claim stays modest: never says the account was managed", () => {
+  const txt = JSON.stringify(real.leadership).toLowerCase();
+  assert.ok(!/(managed|ran|run|grew|boosted).{0,30}instagram/.test(txt));
+  assert.ok(!/100%|budget/.test(txt));
+});

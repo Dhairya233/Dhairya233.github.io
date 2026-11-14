@@ -20,6 +20,26 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+
+      # 1. Check content/profile.json first. If it is broken, stop here and leave the live site alone.
+      - name: Validate content
+        run: node scripts/validate-profile.mjs
+
+      # 2. Build the resume PDF from the same data (phone number hidden for the public copy).
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends latexmk poppler-utils \
+            texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended \
+            texlive-pictures lmodern
+      - name: Build resume
+        run: PUBLIC=1 bash scripts/build-resume.sh
+      - name: Check resume matches the data
+        run: python3 scripts/check-consistency.py
+      - name: Put the resume PDF on the site
+        run: cp resume/build/Dhairya_Shah_Resume.pdf public/Dhairya_Shah_Resume.pdf
+
+      # 3. Tests, build, link check, publish.
       - name: Tests
         run: npm test
       - name: Build

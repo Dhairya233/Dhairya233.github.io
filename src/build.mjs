@@ -301,8 +301,10 @@ function aboutPage(data) {
     )
     .join("");
   const certs = data.certifications
-    .map((c) => `<li><strong>${esc(c.title)}</strong><span>${esc(c.issuer)}</span></li>`)
+    .map((c) => `<li><strong>${esc(c.title)}</strong><span>${esc(c.kind === "appreciation" && c.title.includes(c.issuer) ? "" : c.issuer + (c.date ? ", " : ""))}${esc(c.date || "")}</span></li>`)
     .join("");
+  const L = data.leadership;
+  const leadership = L && L.items?.length ? `<section class="block" id="leadership"><h2>${esc(L.title)}</h2><p>${esc(L.intro)}</p>${L.items.map((it) => `<div class="lead-item"><h3>${esc(it.org)}</h3><p class="small">${esc(it.role)} · ${esc(it.period)}</p><ul>${it.bullets.map((x) => `<li>${esc(x.text)}</li>`).join("")}</ul></div>`).join("")}</section>` : "";
   const body = `<section class="page-head"><h1>About</h1></section>
 <section class="block prose"><p>${esc(a.intro)}</p><p>${esc(a.now)}</p><p>${esc(a.how)}</p><p>${esc(a.outside)}</p>
 <p class="small">I speak ${esc(id.languagesSpoken.slice(0, -1).join(", "))} and ${esc(id.languagesSpoken.slice(-1)[0])}. ${esc(data.education.degree)}, ${esc(data.education.school)}, class of ${data.education.classOf}. CGPA ${esc(data.education.cgpa)}.</p></section>
@@ -312,15 +314,15 @@ function aboutPage(data) {
 <li>LinkedIn: <a href="${esc(id.linkedin)}">linkedin.com/in/dhairyagshah233</a></li>
 <li>GitHub: <a href="${esc(id.github)}">github.com/Dhairya233</a></li></ul></section>
 <section class="block" id="skills"><h2>Skills</h2><p class="small">Grouped by honesty: what I have used in a project, and what I am still learning. Under each skill is the project that used it.</p><div class="tiers">${tiers}</div></section>
-<section class="block" id="certifications"><h2>Certifications</h2><ul class="plain certs">${certs}</ul>
-<p>I hold both certificates, and they are in the Documents folder below.</p></section>
+${leadership}<section class="block" id="certifications"><h2>Certificates and recognition</h2><ul class="plain certs">${certs}</ul>
+<p>These documents are in the Documents folder below.</p></section>
 <section class="block" id="documents"><h2>Documents</h2><p>My resume and certificates, in a view-only folder.</p>
 <p><a class="btn" href="${esc(id.documents)}">Open the Documents folder</a></p></section>`;
   return layout({
     data,
     path: "about/",
     title: "About",
-    description: "About Dhairya Shah: a B.Tech CSE student working on computer vision, full-stack and ML projects. Skills, certifications and how to get in touch.",
+    description: "About Dhairya Shah: a B.Tech CSE student working on computer vision, full-stack and ML projects. Skills, leadership and design work, certificates and how to get in touch.",
     body,
     current: "about/",
   });
@@ -336,7 +338,7 @@ function resumePage(data) {
     .join("");
   const rs = data.research;
   const body = `<section class="page-head"><h1>Resume</h1>
-<a class="thumb" href="../Dhairya_Shah_Resume.pdf" aria-label="Open the resume PDF"><img src="../assets/img/resume-thumb.webp" width="150" height="212" alt="Preview of the one-page black-and-white resume PDF" loading="lazy"></a>
+<a class="thumb" href="../Dhairya_Shah_Resume.pdf" aria-label="Open the resume PDF"><img src="../assets/img/resume-thumb.webp" width="150" height="212" alt="Preview of the black-and-white resume PDF" loading="lazy"></a>
 <div class="actions"><a class="btn" href="../Dhairya_Shah_Resume.pdf" download>Download PDF</a><button type="button" class="btn ghost" id="print">Print this page</button></div></section>
 <article class="resume" aria-label="Resume">
 <header><h2>Dhairya Shah</h2><p>${esc(data.identity.location)} · <a href="../about/#find-me">email on the About page</a></p></header>
@@ -344,8 +346,9 @@ function resumePage(data) {
 <section><h3 class="rh">Projects</h3>${projects}</section>
 <section><h3 class="rh">Research Experience</h3><p><strong>${esc(rs.organisation)}</strong>, ${esc(rs.role)}</p>
 <ul>${data.researchBullets.slice(0, 3).map((b) => `<li>${esc(b.text)}</li>`).join("")}</ul></section>
+${data.leadership?.items?.length ? `<section><h3 class="rh">${esc(data.leadership.title)}</h3>${data.leadership.items.map((it) => `<p><strong>${esc(it.org)}</strong>, ${esc(it.role)} (${esc(it.period)})</p><ul>${it.bullets.map((x) => `<li>${esc(x.text)}</li>`).join("")}</ul>`).join("")}</section>` : ""}
 <section><h3 class="rh">Skills</h3>${data.skills.tiers.map((t) => `<p><strong>${esc(t.tier)}:</strong> ${esc(t.items.map((i) => i.name).join(", "))}</p>`).join("")}</section>
-<section><h3 class="rh">Certifications</h3><ul>${data.certifications.map((c) => `<li>${esc(c.title)}, ${esc(c.issuer)}</li>`).join("")}</ul></section>
+<section><h3 class="rh">Certificates and Recognition</h3><ul>${data.certifications.map((c) => `<li>${esc(c.kind === "appreciation" && c.title.includes(c.issuer) ? c.title : c.title + ", " + c.issuer)}${c.date ? `, ${esc(c.date)}` : ""}</li>`).join("")}</ul></section>
 </article>`;
   return layout({
     data,

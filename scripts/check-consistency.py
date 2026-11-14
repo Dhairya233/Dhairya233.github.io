@@ -67,7 +67,7 @@ for p in profile["projects"]:
     if p["name"] not in alltex:
         warn.append(f"project name '{p['name']}' does not appear in any resume file")
 for c in profile["certifications"]:
-    if c["title"] not in alltex:
+    if c["title"].replace("&", r"\&") not in alltex:
         warn.append(f"certificate title '{c['title']}' does not match the resume exactly")
 if re.search(r"AWS Certified", alltex + " ".join(c["title"] for c in profile["certifications"])):
     warn.append("the phrase 'AWS Certified' appears; use the AWS Academy titles only")

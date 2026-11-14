@@ -29,6 +29,7 @@
 \usepackage{enumitem}                % tight bullet lists
 \usepackage{titlesec}                % section headings
 \usepackage[hidelinks]{hyperref}     % clickable links that do not change the layout
+\usepackage{needspace}               % keeps a section heading together with its first lines
 \usepackage{microtype}               % slightly better line breaking, avoids overfull boxes
 \usepackage{tikz}                    % used only for the small dot motif in the header
 
@@ -49,7 +50,7 @@
 % Section heading: spaced capitals, a hairline, and a short thick black bar on top of it.
 \titleformat{\section}{\bfseries\small}{}{0pt}{\MakeUppercase}
   [\vspace{-5.5pt}{\color{hair}\rule{\linewidth}{0.4pt}}\kern-\linewidth{\color{black}\rule{2.4em}{1.6pt}}]
-\titlespacing*{\section}{0pt}{3pt}{1.5pt}
+\titlespacing*{\section}{0pt}{4pt}{2pt}
 
 % Bullet lists used under every entry (small orange squares as bullets)
 \newenvironment{resumeitems}
@@ -73,7 +74,7 @@
 \newcommand{\entry}[2]{\par\noindent\textbf{#1}\hfill {\color{soft}#2}\par}
 \newcommand{\entrysub}[2]{\noindent\textit{\color{soft}#1}\hfill {\color{soft}#2}\par}
 % A project heading: bold name, stack, visible repo URL; a hairline sits under the row
-\newcommand{\project}[3]{\par\vspace{2.5pt}\noindent{\bfseries\large #1}\ {\color{hair}\textbar}\ {\color{soft}\small #2}\hfill {\small #3}\par\vspace{-1pt}{\color{hair}\rule{\linewidth}{0.3pt}}\par\vspace{1.5pt}}
+\newcommand{\project}[3]{\par\vspace{3pt}\noindent{\bfseries\large #1}\ {\color{hair}\textbar}\ {\color{soft}\small #2}\hfill {\small #3}\par\vspace{-1pt}{\color{hair}\rule{\linewidth}{0.3pt}}\par\vspace{1.5pt}}
 % One-line hook under a project title
 \newcommand{\pitch}[1]{\noindent{\small\itshape\color{soft}#1}\par\vspace{1pt}}
 % Bold teal lead-in for the key phrase of a bullet

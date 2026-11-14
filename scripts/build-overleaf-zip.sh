@@ -3,7 +3,9 @@
 # The zip holds only the resume/ folder. It never includes your real phone number
 # (private/phone.tex is excluded) or build output. The zip itself is git-ignored.
 set -euo pipefail
-cd "$(dirname "$0")/../resume"
+cd "$(dirname "$0")/.."
+node scripts/gen-resume.mjs >/dev/null   # Overleaf needs the generated parts inside the zip
+cd resume
 out="../resume-overleaf.zip"
 rm -f "$out"
 zip -rq "$out" . \

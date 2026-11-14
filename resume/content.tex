@@ -1,4 +1,6 @@
-% content.tex -- THE resume. One file, one version: everything true that fits on one page.
+% content.tex -- THE resume. Leadership, Skills and Certificates are GENERATED from content/profile.json
+% (run scripts/gen-resume.mjs, or just build). Projects and research bullets are hand-written in bank/.
+%  One file, one version: everything true that fits on one page.
 % To tailor it for a company: copy this file's contents into a new file, or just edit
 % in place in Overleaf. Remove bullets, reorder them, or swap in other ids from
 % bank/projects.tex and bank/research.tex (every id has an evidence comment).
@@ -25,10 +27,8 @@
 \researchheader
 \begin{resumeitems}\bul{ime-1}\bul{ime-2}\bul{ime-3}\end{resumeitems}
 
-\section{Skills}
-\skillrow{Languages}{\pill{Python}\pill{JavaScript}\pill{TypeScript}\pill{SQL}}
-\skillrow{Tools}{\pill{Next.js}\pill{Supabase/PostgreSQL}\pill{WebRTC}\pill{MediaPipe}\pill{OpenCV}\pill{scikit-learn}\pill{pytest}\pill{GitHub Actions}\pill{Git}}
-\skillrow{Learning}{\pill{Data structures and algorithms}\pill{C++}\pill{Data engineering}}
-\skillrow{Spoken languages}{\pill{English}\pill{Hindi}\pill{Gujarati}\hspace{1.2em}{\color{teal}\bfseries Hobbies\ }\pill{Music}}
+\input{generated/leadership}
 
-\input{sections/certifications}
+\input{generated/skills}
+
+\input{generated/certificates}

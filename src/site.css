@@ -226,3 +226,4 @@ kbd{font:400 .72em var(--mono);border:1px solid var(--line);border-bottom-width:
 .tools{flex-wrap:wrap}.chip{white-space:nowrap}
 .keyopt{display:block;margin:12px 0 4px;font-size:.9rem}
 .thumb{float:right;margin:0 0 12px 18px}.thumb img{display:block;width:150px;height:auto;border:1px solid var(--line);border-radius:4px}@media (max-width:560px){.thumb{display:none}}@media print{.thumb{display:none}}
+.lead-item{margin:14px 0}.lead-item h3{margin:0 0 2px;font-size:1.05rem}.lead-item ul{margin:6px 0 0;padding-left:1.1em}

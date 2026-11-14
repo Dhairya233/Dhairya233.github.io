@@ -18,6 +18,10 @@ through pegs and pile into a bell curve, and moving the pointer tilts the odds.
   applicant-tracking systems can read it). The phone number is never stored here.
 - `scripts/` holds the helpers: resume build, an Overleaf zip, link and consistency checks.
 
+## Changing things
+
+Edit one file, `content/profile.json`, in the browser on GitHub. See [`EDITING.md`](EDITING.md). The site and the resume PDF rebuild automatically.
+
 ## Run it
 
 Needs Node 20 or newer.
@@ -32,7 +36,7 @@ node scripts/check-links.mjs --internal-only
 Resume (needs TeX Live with `latexmk`, or upload `resume/` to Overleaf):
 
 ```bash
-npm run resume    # builds the PDF without a phone number into public/
+npm run resume    # builds the PDF without a phone number (resume/build/)
 python3 scripts/check-consistency.py
 ```
 

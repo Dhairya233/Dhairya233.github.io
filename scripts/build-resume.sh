@@ -4,7 +4,9 @@
 #   PUBLIC=1 scripts/build-resume.sh     -> same, phone hidden (the website copy)
 # If resume/private/phone.tex exists, the phone number is included (local copy only).
 set -euo pipefail
-cd "$(dirname "$0")/../resume"
+cd "$(dirname "$0")/.."
+node scripts/gen-resume.mjs >/dev/null
+cd resume
 command -v latexmk >/dev/null || { echo "latexmk not found. Install TeX Live (or use Overleaf)."; exit 1; }
 mkdir -p build
 hidephone=""
